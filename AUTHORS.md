@@ -1,6 +1,15 @@
-Green Island
+QML XWayland
 ============
 
-# Authors
+# Core Developers
 
-* Pier Luigi Fiorini <pierluigi.fiorini@gmail.com>
+ * Pier Luigi Fiorini
+
+# Contributors
+
+You can see the list of contributors to this code base,
+and the number of their commits with:
+
+```sh
+git shortlog -s -e -n
+```
