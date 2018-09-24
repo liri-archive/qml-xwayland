@@ -3,7 +3,7 @@ import qbs 1.0
 Project {
     name: "XWayland"
 
-    readonly property string version: "0.0.0"
+    readonly property string version: "0.10.0"
 
     readonly property string minimumQtVersion: "5.9.0"
 
