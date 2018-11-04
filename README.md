@@ -20,42 +20,21 @@ Qt >= 5.9.0 with at least the following modules is required:
 
 And the following modules:
 
- * [qbs-shared](https://github.com/lirios/qbs-shared.git) >= 1.2.0
+ * [cmake](https://gitlab.kitware.com/cmake/cmake) >= 3.10.0
+ * [cmake-shared](https://github.com/lirios/cmake-shared.git) >= 1.0.0
  * [xcb-util-cursor](http://cgit.freedesktop.org/xcb/util-cursor)
 
 ## Installation
 
-Qbs is a new build system that is much easier to use compared to qmake or CMake.
-
-If you want to learn more, please read the [Qbs manual](http://doc.qt.io/qbs/index.html),
-especially the [setup guide](http://doc.qt.io/qbs/configuring.html) and how to install artifacts
-from the [installation guide](http://doc.qt.io/qbs/installing-files.html).
-
-From the root of the repository, run:
-
 ```sh
-qbs setup-toolchains --type gcc /usr/bin/g++ gcc
-qbs setup-qt /usr/bin/qmake-qt5 qt5
-qbs config profiles.qt5.baseProfile gcc
+mkdir build
+cmake -DCMAKE_INSTALL_PREFIX=/path/to/prefix ..
+make
+make install # use sudo if necessary
 ```
 
-Then, from the root of the repository, run:
-
-```sh
-qbs -d build -j $(nproc) profile:qt5 # use sudo if necessary
-```
-
-To the `qbs` call above you can append additional configuration parameters:
-
- * `modules.lirideployment.prefix:/path/to/prefix` where most files are installed (default: `/usr/local`)
- * `modules.lirideployment.dataDir:path/to/lib` where data files are installed (default: `/usr/local/share`)
- * `modules.lirideployment.libDir:path/to/lib` where libraries are installed (default: `/usr/local/lib`)
- * `modules.lirideployment.qmlDir:path/to/qml` where QML plugins are installed (default: `/usr/local/lib/qml`)
- * `modules.lirideployment.pluginsDir:path/to/plugins` where Qt plugins are installed (default: `/usr/local/lib/plugins`)
- * `modules.lirideployment.qbsModulesDir:path/to/qbs` where Qbs modules are installed (default: `/usr/local/share/qbs/modules`)
-
-See [lirideployment.qbs](https://github.com/lirios/qbs-shared/blob/develop/modules/lirideployment/lirideployment.qbs)
-for more deployment-related parameters.
+Replace `/path/to/prefix` to your installation prefix.
+Default is `/usr/local`.
 
 ### Logging categories
 
