@@ -7,13 +7,10 @@ source /usr/local/share/liri-travis/functions
 # Install dependencies
 travis_start "install_packages"
 msg "Install packages..."
-sudo apt-get install -y \
-     libx11-xcb-dev \
-     libxcb-cursor-dev libxcursor-dev \
-     libxcb-composite0-dev \
-     libxcb-xfixes0-dev \
-     libxcb-render0-dev \
-     libxcb-shape0-dev
+dnf install -y \
+     libxcb-devel \
+     xcb-util-cursor-devel \
+     libXcursor-devel
 travis_end "install_packages"
 
 # Install artifacts
@@ -37,7 +34,7 @@ dbus-run-session -- \
 xvfb-run -a -s "-screen 0 800x600x24" \
 qbs -d build -j $(nproc) --all-products profile:travis-qt5 \
     modules.lirideployment.prefix:/usr \
-    modules.lirideployment.libDir:/usr/lib/x86_64-linux-gnu \
-    modules.lirideployment.qmlDir:/usr/lib/x86_64-linux-gnu/qt5/qml \
-    modules.lirideployment.pluginsDir:/usr/lib/x86_64-linux-gnu/qt5/plugins
+    modules.lirideployment.libDir:/usr/lib64 \
+    modules.lirideployment.qmlDir:/usr/lib64/qt5/qml \
+    modules.lirideployment.pluginsDir:/usr/lib64/qt5/plugins
 travis_end "build"
