@@ -5,6 +5,8 @@ find_package(Wayland REQUIRED)
 liri_add_qml_plugin(lirixwayland
     MODULE_PATH
         "Liri/XWayland"
+    VERSION
+        "1.0"
     SOURCES
         plugin.cpp
         sigwatch.cpp
