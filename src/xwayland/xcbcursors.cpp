@@ -231,7 +231,8 @@ void destroyCursors(xcb_cursor_t *c)
     if (!c)
         return;
 
-    for (quint8 i = 0; i < ARRAY_LENGTH(c); i++)
+    // This assumes c was created with createCursors()
+    for (quint8 i = 0; i < ARRAY_LENGTH(cursors); i++)
         xcb_free_cursor(Xcb::connection(), c[i]);
 
     delete []c;
