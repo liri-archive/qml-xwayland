@@ -5,7 +5,6 @@ QML XWayland
 [![GitHub release](https://img.shields.io/github/release/lirios/qml-xwayland.svg)](https://github.com/lirios/qml-xwayland)
 [![Build Status](https://travis-ci.org/lirios/qml-xwayland.svg?branch=develop)](https://travis-ci.org/lirios/qml-xwayland)
 [![GitHub issues](https://img.shields.io/github/issues/lirios/qml-xwayland.svg)](https://github.com/lirios/qml-xwayland/issues)
-[![Maintained](https://img.shields.io/maintenance/yes/2018.svg)](https://github.com/lirios/qml-xwayland/commits/develop)
 
 QML plugin with an XWayland implementation for QML compositors
 such as the one from Liri Shell.
