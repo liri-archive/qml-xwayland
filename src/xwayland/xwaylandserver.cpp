@@ -79,6 +79,11 @@ QWaylandCompositor *XWaylandServer::compositor() const
     return m_compositor;
 }
 
+QString XWaylandServer::displayName() const
+{
+    return m_displayName;
+}
+
 bool XWaylandServer::start()
 {
     if (::pipe(m_serverPairFd) < 0) {
@@ -184,6 +189,7 @@ void XWaylandServer::handleServerStarted()
 
     displayNumber.prepend(QByteArray(":"));
     m_displayName = QString::fromLatin1(displayNumber);
+    Q_EMIT displayNameChanged();
 
     qputenv("DISPLAY", m_displayName.toLatin1());
 
@@ -191,5 +197,5 @@ void XWaylandServer::handleServerStarted()
 
     ::close(m_serverPairFd[0]);
 
-    Q_EMIT started();
+    Q_EMIT started(m_displayName);
 }

@@ -37,6 +37,7 @@ class XWaylandServer : public QObject
 {
     Q_OBJECT
     Q_PROPERTY(QWaylandCompositor *compositor READ compositor CONSTANT)
+    Q_PROPERTY(QString displayName READ displayName NOTIFY displayNameChanged)
 public:
     XWaylandServer(QWaylandCompositor *compositor, QObject *parent = nullptr);
     ~XWaylandServer();
@@ -50,11 +51,13 @@ public:
     }
 
     QWaylandCompositor *compositor() const;
+    QString displayName() const;
 
     bool start();
 
 Q_SIGNALS:
-    void started();
+    void displayNameChanged();
+    void started(const QString &displayName);
     void failedToStart();
 
 private:

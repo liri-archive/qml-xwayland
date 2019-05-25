@@ -43,6 +43,7 @@ class XWayland : public QObject, public QQmlParserStatus
     Q_PROPERTY(bool enabled READ isEnabled WRITE setEnabled NOTIFY enabledChanged)
     Q_PROPERTY(QWaylandCompositor *compositor READ compositor WRITE setCompositor NOTIFY compositorChanged)
     Q_PROPERTY(XWaylandManager *manager READ manager WRITE setManager NOTIFY managerChanged)
+    Q_PROPERTY(QString displayName READ displayName NOTIFY displayNameChanged)
     Q_INTERFACES(QQmlParserStatus)
 public:
     XWayland(QObject *parent = nullptr);
@@ -56,6 +57,8 @@ public:
     XWaylandManager *manager() const;
     void setManager(XWaylandManager *manager);
 
+    QString displayName() const;
+
     Q_INVOKABLE bool startServer();
 
     void classBegin() override {}
@@ -65,11 +68,12 @@ Q_SIGNALS:
     void enabledChanged();
     void compositorChanged();
     void managerChanged();
-    void serverStarted();
+    void displayNameChanged();
+    void serverStarted(const QString &displayName);
     void serverFailedToStart();
 
 private Q_SLOTS:
-    void handleServerStarted();
+    void handleServerStarted(const QString &displayName);
     void handleSurfaceCreated(QWaylandSurface *surface);
 
 private:
@@ -78,6 +82,7 @@ private:
     bool m_initialized;
     XWaylandServer *m_server;
     XWaylandManager *m_manager;
+    QString m_displayName;
 
     void initialize();
 };

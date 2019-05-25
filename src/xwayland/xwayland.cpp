@@ -152,9 +152,12 @@ void XWayland::initialize()
     m_manager->setCompositor(m_compositor);
 }
 
-void XWayland::handleServerStarted()
+void XWayland::handleServerStarted(const QString &displayName)
 {
-    Q_EMIT serverStarted();
+    m_displayName = displayName;
+    Q_EMIT displayNameChanged();
+
+    Q_EMIT serverStarted(displayName);
 
     // Start window management
     m_manager->start(m_server->wmFd());
