@@ -60,6 +60,7 @@ public:
     QString displayName() const;
 
     Q_INVOKABLE bool startServer();
+    Q_INVOKABLE void stopServer();
 
     void classBegin() override {}
     void componentComplete() override { initialize(); }

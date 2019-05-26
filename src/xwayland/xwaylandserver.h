@@ -54,6 +54,7 @@ public:
     QString displayName() const;
 
     bool start();
+    void shutdown();
 
 Q_SIGNALS:
     void displayNameChanged();
@@ -71,8 +72,6 @@ private:
     int m_wmPairFd[2];
 
     wl_client *m_client;
-
-    void shutdown();
 
 private Q_SLOTS:
     void handleServerStarted();

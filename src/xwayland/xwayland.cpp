@@ -110,6 +110,11 @@ bool XWayland::startServer()
     return true;
 }
 
+void XWayland::stopServer()
+{
+    m_server->shutdown();
+}
+
 void XWayland::initialize()
 {
     // Try to find a compositor among parents
