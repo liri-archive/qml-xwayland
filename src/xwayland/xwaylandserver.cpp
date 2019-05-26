@@ -160,11 +160,11 @@ void XWaylandServer::shutdown()
         m_process->waitForFinished();
 
         // Kill the process only if it's still running
-        if (m_process && m_process->state() == QProcess::Running) {
+        if (m_process && m_process->state() == QProcess::Running)
             m_process->kill();
-            delete m_process;
-            m_process = nullptr;
-        }
+
+        m_process->deleteLater();
+        m_process = nullptr;
     }
 }
 
