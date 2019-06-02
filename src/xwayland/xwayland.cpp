@@ -95,6 +95,11 @@ void XWayland::setManager(XWaylandManager *manager)
     Q_EMIT managerChanged();
 }
 
+QString XWayland::displayName() const
+{
+    return m_displayName;
+}
+
 bool XWayland::startServer()
 {
     if (!m_enabled) {
