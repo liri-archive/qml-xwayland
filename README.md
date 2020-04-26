@@ -3,7 +3,7 @@ QML XWayland
 
 [![License](https://img.shields.io/badge/license-LGPLv3.0-blue.svg)](http://www.gnu.org/licenses/lgpl.txt)
 [![GitHub release](https://img.shields.io/github/release/lirios/qml-xwayland.svg)](https://github.com/lirios/qml-xwayland)
-[![Build Status](https://travis-ci.org/lirios/qml-xwayland.svg?branch=develop)](https://travis-ci.org/lirios/qml-xwayland)
+[![CI](https://github.com/lirios/qml-xwayland/workflows/CI/badge.svg?branch=develop)](https://github.com/lirios/qml-xwayland/actions?query=workflow%3ACI)
 [![GitHub issues](https://img.shields.io/github/issues/lirios/qml-xwayland.svg)](https://github.com/lirios/qml-xwayland/issues)
 
 QML plugin with an XWayland implementation for QML compositors
