@@ -50,3 +50,5 @@ liri_add_qml_plugin(lirixwayland
         PkgConfig::Xcursor
         Wayland::Server
 )
+
+liri_finalize_qml_plugin(lirixwayland)
